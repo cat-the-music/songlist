@@ -15,3 +15,11 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           source: "index.html"
           target: "/var/www/songlist/"
+      - name: Copy data.json to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          source: "data.json"
+          target: "/var/www/songlist/"
